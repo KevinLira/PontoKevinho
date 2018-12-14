@@ -1,0 +1,7 @@
+C:\Users\kslira\source\repos\PontoKevinho\Ponto\bin\Debug\Ponto.exe.config
+C:\Users\kslira\source\repos\PontoKevinho\Ponto\bin\Debug\Ponto.exe
+C:\Users\kslira\source\repos\PontoKevinho\Ponto\bin\Debug\Ponto.pdb
+C:\Users\kslira\source\repos\PontoKevinho\Ponto\obj\Debug\Ponto.csprojResolveAssemblyReference.cache
+C:\Users\kslira\source\repos\PontoKevinho\Ponto\obj\Debug\Ponto.csproj.CoreCompileInputs.cache
+C:\Users\kslira\source\repos\PontoKevinho\Ponto\obj\Debug\Ponto.exe
+C:\Users\kslira\source\repos\PontoKevinho\Ponto\obj\Debug\Ponto.pdb
