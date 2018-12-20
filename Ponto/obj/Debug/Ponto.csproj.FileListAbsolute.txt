@@ -5,3 +5,8 @@ C:\Users\kslira\source\repos\PontoKevinho\Ponto\obj\Debug\Ponto.csprojResolveAss
 C:\Users\kslira\source\repos\PontoKevinho\Ponto\obj\Debug\Ponto.csproj.CoreCompileInputs.cache
 C:\Users\kslira\source\repos\PontoKevinho\Ponto\obj\Debug\Ponto.exe
 C:\Users\kslira\source\repos\PontoKevinho\Ponto\obj\Debug\Ponto.pdb
+C:\Users\kslira\source\repos\PontoKevinho\Ponto\bin\Debug\LinqToExcel.dll
+C:\Users\kslira\source\repos\PontoKevinho\Ponto\bin\Debug\Remotion.Data.Linq.dll
+C:\Users\kslira\source\repos\PontoKevinho\Ponto\bin\Debug\Remotion.dll
+C:\Users\kslira\source\repos\PontoKevinho\Ponto\bin\Debug\Remotion.Interfaces.dll
+C:\Users\kslira\source\repos\PontoKevinho\Ponto\bin\Debug\LinqToExcel.xml

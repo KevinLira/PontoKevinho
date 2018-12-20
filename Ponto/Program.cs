@@ -8,16 +8,17 @@ namespace Ponto
     {
         static void Main(string[] args)
         {
-
-            var kevin = new Funcionario
+            var factory = new BatidasFactory();
+            var funcionario = new Funcionario
             {
-                Nome = "Kevin Lira",
+                Nome = factory.GetNomeUsuario(), 
                 CartaoPonto = new CartaoPonto
                 {
-                    Batidas = new BatidasFactory().GetList()
+                    Batidas = factory.GetList()
                 }
 
             };
+
             Start:
             Console.Clear();
             Console.WriteLine("*******************************************************");
@@ -33,16 +34,16 @@ namespace Ponto
             switch (num)
             {   
                 case "1":
-                    TotalResumido(kevin);
+                    ExibeTotal(funcionario);
                     break;
 
                 case "2":
                 default:
-                    TotalResumido(kevin, true);
+                    ExibeTotal(funcionario, true);
                     break;
 
                 case "3":
-                    VisualizarEntradasESaidasRaw(kevin.CartaoPonto);
+                    VisualizarEntradasESaidasRaw(funcionario.CartaoPonto);
                     break;
 
 
@@ -64,10 +65,10 @@ namespace Ponto
 
         }
 
-        private static void VisualizarEntradasESaidasRaw(CartaoPonto kevin)
+        private static void VisualizarEntradasESaidasRaw(CartaoPonto cartao)
         {
             Console.WriteLine("*******************************************************");
-            foreach (var item in kevin.Batidas)
+            foreach (var item in cartao.Batidas)
             {
                 Console.WriteLine($"Dia: {item.DataEntrada.Date} Entrada: {item.DataEntrada.ToShortTimeString()} Saída: {item.DataSaida.ToShortTimeString()}     ");
             }
@@ -78,8 +79,8 @@ namespace Ponto
         private static TimeSpan CalcularSaldoHoras(CartaoPonto kevinCartaoPonto, bool exibeDetalhe)
         {
             var saldo = new TimeSpan();
-            var diaDescontadoAjustadoNoArrayGambiarristico = new TimeSpan().Add(TimeSpan.FromHours(-8).Add(TimeSpan.FromMinutes(-59)));
-            var marretaDesconto = new TimeSpan().Add(TimeSpan.FromHours(-8));
+            var diaDescontado = new TimeSpan().Add(TimeSpan.FromHours(-8).Add(TimeSpan.FromMinutes(-59)));
+            var setDesconto = new TimeSpan().Add(TimeSpan.FromHours(-8));
 
 
             foreach (var item in kevinCartaoPonto.Batidas)
@@ -90,9 +91,9 @@ namespace Ponto
 
                 if (timeSpan > new TimeSpan(0, 10, 0) || timeSpan < new TimeSpan(0, -10, 0))
                 {
-                    if (timeSpan == diaDescontadoAjustadoNoArrayGambiarristico)
+                    if (timeSpan == diaDescontado)
                     {
-                        timeSpan = marretaDesconto;// Se for uma Falta ou uma emenda, Desconta 8 horas para compensação
+                        timeSpan = setDesconto;// Se for uma Falta ou uma emenda, Desconta 8 horas para compensação
                     }
                     if (exibeDetalhe)
                     {
@@ -111,14 +112,14 @@ namespace Ponto
             return saldo;
         }
 
-        public static void TotalResumido(Funcionario kevin, bool exibeDetalhe = false)
+        public static void ExibeTotal(Funcionario funcionario, bool exibeDetalhe = false)
         {
-            kevin.CartaoPonto.SaldoHoras = CalcularSaldoHoras(kevin.CartaoPonto,exibeDetalhe);
+            funcionario.CartaoPonto.SaldoHoras = CalcularSaldoHoras(funcionario.CartaoPonto,exibeDetalhe);
             Console.WriteLine("*******************************************************");
-            Console.WriteLine("*                                                     *");
-            Console.WriteLine($"* Nome: {kevin.Nome}                                    *");
-            Console.WriteLine($"* Total de Horas: {kevin.CartaoPonto.SaldoHoras}                            *");
-            Console.WriteLine("*                                                     *");
+            Console.WriteLine("");
+            Console.WriteLine($" Nome: {funcionario.Nome}");
+            Console.WriteLine($" Total de Horas: {funcionario.CartaoPonto.SaldoHoras}");
+            Console.WriteLine("");
             Console.WriteLine("*******************************************************");
 
         }
